@@ -9,7 +9,9 @@ namespace Chess
         {
             Posicao P = new Posicao(3, 4);
 
-            System.Console.WriteLine("Posicao: " + P);
+            Tabuleiro tab = new Tabuleiro(8, 8);
+
+            Tela.ImprimirTabuleiro(tab);
 
             Console.Read();
         }
