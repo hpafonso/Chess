@@ -1,4 +1,5 @@
 using tabuleiro;
+using xadrez;
 
 namespace Chess
 {
@@ -11,9 +12,13 @@ namespace Chess
             // É feita uma verificação para ver se na posição atual já tem alguma peça
             // Se não, é impresso um "- "
             
+            // bullet point symbol
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            string bulletPoint = "\u2022";
+
             for (int i = 0; i < tab.linhas; i++)
             {
-                Console.Write(8 - i + " ");
+                Console.Write($"{8 - i} {bulletPoint} ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
                     if (tab.RetornaPeca(i, j) == null)
@@ -25,7 +30,17 @@ namespace Chess
                 }
                 Console.WriteLine();
             }
-            Console.Write($"  A B C D E F G H");
+            Console.Write($"    {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint}");
+            Console.Write($"\n    A B C D E F G H");
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            if (s == null || s.Length > 2)
+                throw new TabuleiroException("Por favor introduza uma posição válida.");
+            return new PosicaoXadrez(Convert.ToChar(s[0]), Convert.ToInt32(Char.GetNumericValue(s[1])));
+        
         }
 
         public static void ImprimirPeca(Peca peca)

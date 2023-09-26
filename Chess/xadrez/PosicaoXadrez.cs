@@ -3,6 +3,9 @@ using tabuleiro;
 
 namespace xadrez
 {
+    // Esta classe server para converter a posição em formato "Xadrez" para
+    // formato da matriz usada para a posição das peças
+    
     public class PosicaoXadrez
     {
         public char coluna { get; set; }
@@ -16,7 +19,7 @@ namespace xadrez
 
         public Posicao ConverterPosicao()
         {
-            return new Posicao((8 - linha), (coluna - 'a'));
+            return new Posicao(8 - linha, coluna - 'a');
         }    
 
         public override string ToString()

@@ -8,12 +8,27 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            Tabuleiro tab = new Tabuleiro(8, 8);
-            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
-            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 2));
+            try
+            {
+                PartidaDeXadrex partida = new PartidaDeXadrex();
 
-            Tela.ImprimirTabuleiro(tab);
+                while (!partida.partidaTerminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab);
+                    System.Console.WriteLine();
+
+                    System.Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+                    System.Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
+                    partida.ExecutaMovimento(origem, destino);
+                }
+            }
+            catch (TabuleiroException e)
+            {
+                throw new TabuleiroException(e.Message);
+            }
 
             Console.Read();
         }

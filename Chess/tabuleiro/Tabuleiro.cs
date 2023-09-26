@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace tabuleiro
 {
     public class Tabuleiro
@@ -36,6 +38,16 @@ namespace tabuleiro
 
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
+        }
+
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (RetornaPeca(pos) == null)
+                return null;
+            Peca aux = RetornaPeca(pos);
+            aux.posicao = null;
+            pecas[pos.linha, pos.coluna] = null;
+            return aux;
         }
 
         public bool PosicaoValida(Posicao pos)
