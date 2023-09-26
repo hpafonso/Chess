@@ -15,9 +15,9 @@ namespace Chess
             {
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (tab.Peca(i, j) == null)
+                    if (tab.RetornaPeca(i, j) == null)
                         System.Console.Write("- ");
-                    else System.Console.Write(tab.Peca(i, j) + " ");
+                    else System.Console.Write(tab.RetornaPeca(i, j) + " ");
                 }
                 System.Console.WriteLine();
             }
