@@ -8,8 +8,13 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            PosicaoXadrez pos = new PosicaoXadrez('a', 2);
-            System.Console.WriteLine(pos.ConverterPosicao());
+            Tabuleiro tab = new Tabuleiro(8, 8);
+            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
+            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 2));
+
+            Tela.ImprimirTabuleiro(tab);
+
             Console.Read();
         }
     }
