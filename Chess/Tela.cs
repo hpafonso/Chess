@@ -11,7 +11,7 @@ namespace Chess
             // Após isso, percorre a matriz e receber o valor de cada posição através do metodo "Peca()"
             // É feita uma verificação para ver se na posição atual já tem alguma peça
             // Se não, é impresso um "- "
-            
+
             // bullet point symbol
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             string bulletPoint = "\u2022";
@@ -19,19 +19,45 @@ namespace Chess
             for (int i = 0; i < tab.linhas; i++)
             {
                 Console.Write($"{8 - i} {bulletPoint} ");
-                for (int j = 0; j < tab.colunas; j++)
-                {
-                    if (tab.RetornaPeca(i, j) == null)
-                        Console.Write("- ");
-                    else 
-                    {
-                        ImprimirPeca(tab.RetornaPeca(i, j));
-                    }
+                for (int j = 0; j < tab.colunas; j++) 
+                { 
+                    ImprimirPeca(tab.RetornaPeca(i, j));
                 }
                 Console.WriteLine();
             }
-            Console.Write($"    {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint}");
+            Console.Write(
+                $"    {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint}"
+            );
             Console.Write($"\n    A B C D E F G H");
+        }
+
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posPossiveis)
+        {
+            // bullet point symbol
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            string bulletPoint = "\u2022";
+
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                Console.Write($"{8 - i} {bulletPoint} ");
+                for (int j = 0; j < tab.colunas; j++) 
+                { 
+                    if (posPossiveis[i, j])
+                        Console.BackgroundColor = fundoAlterado;
+                    else Console.BackgroundColor = fundoOriginal;
+                    ImprimirPeca(tab.RetornaPeca(i, j));
+                    Console.BackgroundColor = fundoOriginal;
+                }
+                Console.WriteLine();
+            }
+            Console.Write(
+                $"    {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint} {bulletPoint}"
+            );
+            Console.Write($"\n    A B C D E F G H");
+            Console.BackgroundColor = fundoOriginal;
         }
 
         public static PosicaoXadrez LerPosicaoXadrez()
@@ -39,21 +65,26 @@ namespace Chess
             string s = Console.ReadLine();
             if (s == null || s.Length > 2)
                 throw new TabuleiroException("Por favor introduza uma posição válida.");
-            return new PosicaoXadrez(Convert.ToChar(s[0]), Convert.ToInt32(Char.GetNumericValue(s[1])));
-        
+            return new PosicaoXadrez(
+                Convert.ToChar(s[0]),
+                Convert.ToInt32(Char.GetNumericValue(s[1]))
+            );
         }
 
         public static void ImprimirPeca(Peca peca)
         {
-            if (peca.cor == Cor.Branca)
+            if (peca == null)
+                Console.Write("- ");
+            else if (peca.cor == Cor.Branca)
                 Console.Write(peca + " ");
-            else 
+            else
             {
                 ConsoleColor aux = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(peca + " ");
                 Console.ForegroundColor = aux;
             }
+
         }
     }
 }

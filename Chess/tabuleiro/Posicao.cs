@@ -11,6 +11,15 @@ namespace tabuleiro
             this.coluna = coluna;
         }
 
+        // Método usado para atualiar a posição em questao
+        // (para ser usado principalmente no metodo de MovimentosPossiveis)
+        
+        public void DefinirValores(int linha, int coluna)
+        {
+            this.linha = linha;
+            this.coluna = coluna;
+        }
+
         public override string ToString()
         {
             return $"{linha}, {coluna}";

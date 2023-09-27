@@ -20,6 +20,14 @@ namespace Chess
 
                     System.Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+                    // Thread.Sleep(1000);
+
+                    bool[,] posPossiveis = partida.tab.RetornaPeca(origem).MovimentosPossiveis();
+                    Console.Clear();
+
+                    Tela.ImprimirTabuleiro(partida.tab, posPossiveis);
+                    System.Console.WriteLine();
+
                     System.Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
                     partida.ExecutaMovimento(origem, destino);
