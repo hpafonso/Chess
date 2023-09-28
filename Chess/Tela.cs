@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using tabuleiro;
 using xadrez;
 
@@ -5,6 +6,37 @@ namespace Chess
 {
     public class Tela
     {
+        public static void ImprimirPartida(PartidaDeXadrex partida)
+        {
+            ImprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+            Console.WriteLine($"\nTurno: {partida.turno}");
+            Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
+        }
+
+        // Imprime tanto as peças pretas como as brancas que foram capturadas
+        public static void ImprimirPecasCapturadas(PartidaDeXadrex partida)
+        {
+            Console.WriteLine($"Peças capturadas: ");
+            Console.Write($"Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Branca));
+            Console.Write($"Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+        }
+        
+        public static void ImprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write($"[");
+            foreach (var p in conjunto)
+                Console.Write(p + ", ");
+            Console.WriteLine($"]");
+            
+            
+        }
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
             // O método "ImprimirTabuleiro()" recebe um tabuleiro (que terá de ser instanciado no main)

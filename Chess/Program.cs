@@ -17,10 +17,7 @@ namespace Chess
                     try
                     {
                         Console.Clear();
-                        Tela.ImprimirTabuleiro(partida.tab);
-                        Console.WriteLine();
-                        Console.WriteLine($"\nTurno: {partida.turno}");
-                        Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
+                        Tela.ImprimirPartida(partida);
 
                         Console.Write("Origem: ");
                         Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
