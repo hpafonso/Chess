@@ -39,7 +39,7 @@ namespace tabuleiro
             return false;
         }
 
-        public bool PodeMoverPara(Posicao pos)
+        public bool MovimentoPossivel(Posicao pos)
         {
             // irá retornar verdadeiro se nesta posição da matriz for verdadeira
             return MovimentosPossiveis()[pos.linha, pos.coluna];
