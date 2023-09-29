@@ -12,12 +12,19 @@ namespace Chess
             Console.WriteLine();
             ImprimirPecasCapturadas(partida);
             Console.WriteLine($"\nTurno: {partida.turno}");
-            Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
-            if (partida.xeque)
+            if (!partida.partidaTerminada)
             {
-                Console.WriteLine($"XEQUE!");
+                Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
+                if (partida.xeque)
+                    Console.WriteLine($"XEQUE!");
+            }
+            else 
+            {
+                Console.WriteLine($"XEQUEMATE!\n");
+                Console.WriteLine($"Vencedor: {partida.jogadorAtual}");
                 
             }
+            
         }
 
         // Imprime tanto as peças pretas como as brancas que foram capturadas
