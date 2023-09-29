@@ -192,39 +192,29 @@ namespace xadrez
 
         private void ColocarPecas()
         {
-            ColocarNovaPeca('b', 8, new Torre(tab, Cor.Preta));
-            
-            // tab.ColocarPeca(new Torre(tab, Cor.Preta), new PosicaoXadrez('a', 8).ConverterPosicao());
-            // tab.ColocarPeca(new Cavalo(tab, Cor.Preta), new PosicaoXadrez('b', 8).ConverterPosicao());
-            // tab.ColocarPeca(new Bispo(tab, Cor.Preta), new PosicaoXadrez('c', 8).ConverterPosicao());
-            // ColocarNovaPeca('a', 8, new Torre(tab, Cor.Preta));
-            ColocarNovaPeca('a', 8, new Rei(tab, Cor.Preta));
-            // tab.ColocarPeca(new Rainha(tab, Cor.Preta), new PosicaoXadrez('e', 8).ConverterPosicao());
-            // tab.ColocarPeca(new Bispo(tab, Cor.Preta), new PosicaoXadrez('f', 8).ConverterPosicao());
-            // tab.ColocarPeca(new Cavalo(tab, Cor.Preta), new PosicaoXadrez('g', 8).ConverterPosicao());
-            // tab.ColocarPeca(new Torre(tab, Cor.Preta), new PosicaoXadrez('h', 8).ConverterPosicao());
+            ColocarNovaPeca('a', 8, new Torre(tab, Cor.Preta));
+            ColocarNovaPeca('b', 8, new Cavalo(tab, Cor.Preta));
+            ColocarNovaPeca('c', 8, new Bispo(tab, Cor.Preta));
+            ColocarNovaPeca('d', 8, new Rei(tab, Cor.Preta));
+            ColocarNovaPeca('e', 8, new Dama(tab, Cor.Preta));
+            ColocarNovaPeca('f', 8, new Bispo(tab, Cor.Preta));
+            ColocarNovaPeca('g', 8, new Cavalo(tab, Cor.Preta));
+            ColocarNovaPeca('h', 8, new Torre(tab, Cor.Preta));
 
-            // for (int i = Convert.ToInt32('a'); i < Convert.ToInt32('a') + 8; i++)
-            // {
-            //     tab.ColocarPeca(new Peao(tab, Cor.Preta), new PosicaoXadrez(Convert.ToChar(i), 7).ConverterPosicao());
-            // }
+            for (int i = Convert.ToInt32('a'); i < Convert.ToInt32('a') + 8; i++)
+                ColocarNovaPeca(Convert.ToChar(i), 7, new Peao(tab, Cor.Preta));
 
+            ColocarNovaPeca('a', 1, new Torre(tab, Cor.Branca));
+            ColocarNovaPeca('b', 1, new Cavalo(tab, Cor.Branca));
+            ColocarNovaPeca('c', 1, new Bispo(tab, Cor.Branca));
             ColocarNovaPeca('d', 1, new Rei(tab, Cor.Branca));
-            ColocarNovaPeca('b', 1, new Torre(tab, Cor.Branca));
-            ColocarNovaPeca('h', 7, new Torre(tab, Cor.Branca));
-            // tab.ColocarPeca(new Torre(tab, Cor.Branca), new PosicaoXadrez('a', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Cavalo(tab, Cor.Branca), new PosicaoXadrez('b', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Bispo(tab, Cor.Branca), new PosicaoXadrez('c', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Rei(tab, Cor.Branca), new PosicaoXadrez('d', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Rainha(tab, Cor.Branca), new PosicaoXadrez('e', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Bispo(tab, Cor.Branca), new PosicaoXadrez('f', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Cavalo(tab, Cor.Branca), new PosicaoXadrez('g', 1).ConverterPosicao());
-            // tab.ColocarPeca(new Torre(tab, Cor.Branca), new PosicaoXadrez('h', 1).ConverterPosicao());
+            ColocarNovaPeca('e', 1, new Dama(tab, Cor.Branca));
+            ColocarNovaPeca('f', 1, new Bispo(tab, Cor.Branca));
+            ColocarNovaPeca('g', 1, new Cavalo(tab, Cor.Branca));
+            ColocarNovaPeca('h', 1, new Torre(tab, Cor.Branca));
 
-            // for (int i = Convert.ToInt32('a'); i < Convert.ToInt32('a') + 8; i++)
-            // {
-            //     tab.ColocarPeca(new Peao(tab, Cor.Branca), new PosicaoXadrez(Convert.ToChar(i), 2).ConverterPosicao());
-            // }
+            for (int i = Convert.ToInt32('a'); i < Convert.ToInt32('a') + 8; i++)
+                ColocarNovaPeca(Convert.ToChar(i), 2, new Peao(tab, Cor.Branca));
         }
     }
 }
