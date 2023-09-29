@@ -8,6 +8,7 @@ namespace Chess
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine();
             try
             {
                 PartidaDeXadrex partida = new PartidaDeXadrex();
