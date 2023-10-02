@@ -52,7 +52,7 @@ namespace Chess
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
             // O método "ImprimirTabuleiro()" recebe um tabuleiro (que terá de ser instanciado no main)
-            // Após isso, percorre a matriz e receber o valor de cada posição através do metodo "Peca()"
+            // Após isso, percorre a matriz e recebe o valor de cada posição através do metodo "RetornaPeca()"
             // É feita uma verificação para ver se na posição atual já tem alguma peça
             // Se não, é impresso um "- "
 
